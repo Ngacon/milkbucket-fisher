@@ -1,0 +1,7 @@
+[
+  {"id":"crumb_bait","name":"Crumb Bait","outputItem":"crumb_bait","outputQuantity":5,"coins":120,"ingredients":[]},
+  {"id":"berry_bait","name":"Berry Bait","outputItem":"berry_bait","outputQuantity":4,"coins":250,"ingredients":[{"type":"fish","id":"milk_carp","quantity":1}]},
+  {"id":"shell_lure","name":"Shell Lure","outputItem":"shell_lure","outputQuantity":3,"coins":500,"ingredients":[{"type":"fish","id":"salted_caramel_crab","quantity":1}]},
+  {"id":"storm_charm","name":"Storm Charm","outputItem":"storm_charm","outputQuantity":2,"coins":900,"ingredients":[{"type":"fish","id":"spark_shrimp","quantity":1}]},
+  {"id":"prism_bait","name":"Prism Bait","outputItem":"prism_bait","outputQuantity":2,"coins":1500,"ingredients":[{"type":"item","id":"berry_bait","quantity":2},{"type":"fish","id":"crystal_fin","quantity":1}]}
+]

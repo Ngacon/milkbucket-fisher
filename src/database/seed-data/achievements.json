@@ -1,0 +1,6 @@
+[
+  {"id":"catch_count","name":"Tay Câu Bền Bỉ","description":"Catch many fish.","tiers":[10,100,1000,5000],"rewards":{"coins":[300,2500,25000,150000],"milkDrops":[1,5,20,60]}},
+  {"id":"shiny_hunter","name":"Thợ Săn Lấp Lánh","description":"Catch shiny fish.","tiers":[1,3,10,25],"rewards":{"pearls":[10,25,90,250],"milkDrops":[5,10,30,100]}},
+  {"id":"perfect_catch","name":"Không Lệch Một Giọt","description":"Land perfect catches.","tiers":[1,25,100,500],"rewards":{"coins":[500,6000,40000,220000],"pearls":[2,8,30,120]}},
+  {"id":"team_player","name":"Xô Sữa Đồng Đội","description":"Contribute to team weekly score.","tiers":[1000,25000,150000,800000],"rewards":{"coins":[700,8000,65000,300000],"milkDrops":[1,6,25,80]}}
+]

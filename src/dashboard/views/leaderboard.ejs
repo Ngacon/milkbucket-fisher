@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Milkbucket Leaderboard</title>
+    <style>
+      body { font-family: Inter, system-ui, sans-serif; background: #fffaf0; margin: 32px; }
+      table { width: 100%; border-collapse: collapse; background: white; }
+      th, td { border-bottom: 1px solid #f0dfc4; padding: 10px; text-align: left; }
+    </style>
+  </head>
+  <body>
+    <h1>Leaderboard</h1>
+    <table>
+      <thead><tr><th>#</th><th>User</th><th>Coins</th><th>Fish</th><th>Level</th></tr></thead>
+      <tbody>
+        <% profiles.forEach((profile, index) => { %>
+          <tr>
+            <td><%= index + 1 %></td>
+            <td><%= profile.user.username %></td>
+            <td><%= profile.coins %></td>
+            <td><%= profile.totalFishCaught %></td>
+            <td><%= profile.level %></td>
+          </tr>
+        <% }) %>
+      </tbody>
+    </table>
+  </body>
+</html>

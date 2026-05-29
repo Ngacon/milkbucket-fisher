@@ -1,0 +1,44 @@
+{
+  "common": {
+    "coins": "Coins",
+    "pearls": "Ngọc trai",
+    "milkDrops": "Milk Drops",
+    "error": "Có gì đó vừa đổ sữa. Thử lại sau nhé.",
+    "notReady": "World chưa được seed. Hãy chạy `npm run prisma:migrate && npm run seed`.",
+    "adminOnly": "Lệnh này chỉ dành cho admin.",
+    "unknownCommand": "Không tìm thấy lệnh. Dùng `m!help` hoặc `/help`."
+  },
+  "help": {
+    "title": "Milkbucket",
+    "description": "Bot câu cá chiến thuật: mini-game tension, collection 200 cá, team, marketplace, boss, season và economy chống lạm phát.",
+    "fields": {
+      "fishing": "`/fish`, `/bag`, `/sell`, `/map`, `/shop`",
+      "social": "`/profile`, `/team`, `/leaderboard`, `/market`",
+      "progression": "`/quests`, `/language`, `/casino`, `/admin`"
+    }
+  },
+  "fishing": {
+    "start": "Bạn thả cần tại {{map}}. Mặt nước chuyển động...",
+    "caught": "Bắt được **{{fish}}** {{stars}} | size **{{size}}kg** | giá trị **{{value}} coins**{{shiny}}",
+    "failed": "Cá thoát mất. Tension vượt khỏi vùng kiểm soát.",
+    "perfect": " Perfect catch!",
+    "shiny": " | Shiny x10!",
+    "buttons": {
+      "pull": "Kéo",
+      "hold": "Giữ",
+      "slack": "Thả dây"
+    }
+  },
+  "economy": {
+    "sold": "Đã bán {{count}} cá được **{{coins}} coins**. Market multiplier: x{{multiplier}}.",
+    "emptyBag": "Túi cá đang trống.",
+    "paid": "Đã chuyển **{{amount}} coins** cho {{user}}. Tax {{tax}} coins đã bị đốt khỏi economy."
+  },
+  "profile": {
+    "title": "Hồ sơ của {{user}}",
+    "line": "Level {{level}} | {{coins}} coins | {{pearls}} pearls | {{milkDrops}} milk drops"
+  },
+  "language": {
+    "changed": "Đã đổi ngôn ngữ sang tiếng Việt."
+  }
+}

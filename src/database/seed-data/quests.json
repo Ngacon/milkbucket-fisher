@@ -1,0 +1,8 @@
+[
+  {"id":"daily_first_cast","type":"Daily","requirement":{"kind":"catch","count":5},"reward":{"coins":450,"pearls":1,"milkDrops":1}},
+  {"id":"daily_weather_hunter","type":"Daily","requirement":{"kind":"catchWeather","count":3},"reward":{"coins":700,"pearls":2,"milkDrops":1}},
+  {"id":"daily_market_trip","type":"Daily","requirement":{"kind":"sell","count":1},"reward":{"coins":500,"pearls":1,"milkDrops":1}},
+  {"id":"weekly_collector","type":"Weekly","requirement":{"kind":"uniqueFish","count":15},"reward":{"coins":5000,"pearls":12,"milkDrops":5}},
+  {"id":"weekly_team_bucket","type":"Weekly","requirement":{"kind":"teamScore","count":50000},"reward":{"coins":9000,"pearls":20,"milkDrops":8}},
+  {"id":"story_bucket_oath","type":"Story","requirement":{"kind":"level","count":5},"reward":{"coins":2500,"pearls":5,"title":"Người Giữ Xô Sữa"}}
+]

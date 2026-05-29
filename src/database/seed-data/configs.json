@@ -1,0 +1,7 @@
+[
+  {"key":"market.taxRate","value":0.05},
+  {"key":"event.current","value":{"type":"none"}},
+  {"key":"economy.maxMeaningfulCoins","value":1000000000},
+  {"key":"hardcore.lossRate","value":0.5},
+  {"key":"market.globalMultipliers","value":{}}
+]
