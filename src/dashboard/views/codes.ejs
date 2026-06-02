@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Milkbucket Codes</title>
+    <style>
+      body { font-family: Inter, system-ui, sans-serif; background: #fffaf0; margin: 32px; }
+      form, table { background: white; border: 1px solid #f0dfc4; border-radius: 8px; padding: 16px; }
+      input { margin: 4px; padding: 8px; }
+      table { width: 100%; border-collapse: collapse; margin-top: 16px; }
+      th, td { border-bottom: 1px solid #f0dfc4; padding: 10px; text-align: left; }
+    </style>
+  </head>
+  <body>
+    <h1>Gift Codes</h1>
+    <form method="post" action="/dashboard/codes?key=<%= key %>">
+      <input name="code" placeholder="CODE" required />
+      <input name="coins" type="number" min="0" placeholder="coins" />
+      <input name="pearls" type="number" min="0" placeholder="pearls" />
+      <input name="milkDrops" type="number" min="0" placeholder="milk drops" />
+      <input name="maxClaims" type="number" min="1" placeholder="claims" />
+      <button>Create / Update</button>
+    </form>
+    <table>
+      <thead><tr><th>Code</th><th>Coins</th><th>Pearls</th><th>Milk</th><th>Claims</th><th>Active</th></tr></thead>
+      <tbody>
+        <% codes.forEach((code) => { %>
+          <tr>
+            <td><%= code.code %></td>
+            <td><%= code.coins %></td>
+            <td><%= code.pearls %></td>
+            <td><%= code.milkDrops %></td>
+            <td><%= code.claimedCount %>/<%= code.maxClaims %></td>
+            <td><%= code.active ? 'yes' : 'no' %></td>
+          </tr>
+        <% }) %>
+      </tbody>
+    </table>
+  </body>
+</html>

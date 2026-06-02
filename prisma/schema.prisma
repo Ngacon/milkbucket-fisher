@@ -1,0 +1,437 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum Language {
+  vi
+  en
+}
+
+enum FishTier {
+  Common
+  Uncommon
+  Rare
+  Epic
+  Legendary
+  Mythic
+  Secret
+}
+
+enum QuestType {
+  Daily
+  Weekly
+  Story
+  Seasonal
+}
+
+enum AuctionStatus {
+  Open
+  Settled
+  Cancelled
+}
+
+enum TeamRole {
+  Leader
+  Officer
+  Member
+}
+
+enum PetRarity {
+  Common
+  Uncommon
+  Rare
+  Epic
+  Legendary
+}
+
+model User {
+  id                String               @id @default(cuid())
+  discordId         String               @unique
+  username          String
+  language          Language             @default(vi)
+  bannedUntil       DateTime?
+  createdAt         DateTime             @default(now())
+  updatedAt         DateTime             @updatedAt
+  profile           Profile?
+  rods              UserRod[]
+  maps              UserMap[]
+  fish              UserFish[]
+  catches           CatchRecord[]
+  collections       Collection[]
+  quests            UserQuest[]
+  achievements      UserAchievement[]
+  teamMemberships   TeamMember[]
+  ledTeams          Team[]               @relation("TeamLeader")
+  listings          MarketplaceListing[]
+  auctions          Auction[]            @relation("AuctionSeller")
+  auctionBids       Auction[]            @relation("AuctionBidder")
+  pets              UserPet[]
+  bossParticipation BossParticipation[]
+  giftCodes         UserGiftCode[]
+  items             UserItem[]
+  seasonProgress    SeasonProgress[]
+}
+
+model Profile {
+  userId           String  @id
+  user             User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  coins            Int     @default(0)
+  pearls           Int     @default(0)
+  milkDrops        Int     @default(0)
+  totalFishCaught  Int     @default(0)
+  totalMoneyEarned Int     @default(0)
+  currentRodId     String?
+  currentRod       Rod?    @relation(fields: [currentRodId], references: [id])
+  level            Int     @default(1)
+  exp              Int     @default(0)
+  title            String  @default("Ngư dân mới")
+  banner           String  @default("milk-white")
+  chatColor        String  @default("#FFFFFF")
+  hardcore         Boolean @default(false)
+
+  @@index([coins])
+  @@index([totalFishCaught])
+}
+
+model Rod {
+  id       String    @id
+  name     String
+  power    Int
+  luck     Int
+  speed    Int
+  ability  Json
+  maxLevel Int
+  price    Int
+  profiles Profile[]
+  userRods UserRod[]
+
+  @@index([price])
+}
+
+model UserRod {
+  userId        String
+  rodId         String
+  user          User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  rod           Rod     @relation(fields: [rodId], references: [id], onDelete: Cascade)
+  level         Int     @default(1)
+  exp           Int     @default(0)
+  enchantments  Json    @default("[]")
+  isEquipped    Boolean @default(false)
+  prestigeCount Int     @default(0)
+
+  @@id([userId, rodId])
+  @@index([userId, isEquipped])
+}
+
+model Map {
+  id                  String        @id
+  name                String
+  biome               String
+  difficulty          Int
+  price               Int
+  weatherPattern      Json
+  secretSpotCondition Json
+  userMaps            UserMap[]
+  weatherState        WeatherState?
+  bosses              WorldBoss[]
+
+  @@index([difficulty])
+}
+
+model UserMap {
+  userId     String
+  mapId      String
+  user       User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  map        Map      @relation(fields: [mapId], references: [id], onDelete: Cascade)
+  unlockedAt DateTime @default(now())
+
+  @@id([userId, mapId])
+}
+
+model Fish {
+  id               String               @id
+  name             String
+  tier             FishTier
+  baseValue        Int
+  habitat          String[]             @default([])
+  preferredWeather String[]             @default([])
+  preferredTime    String[]             @default([])
+  preferredBait    String[]             @default([])
+  lore             String
+  catchRate        Int
+  userFish         UserFish[]
+  catches          CatchRecord[]
+  listings         MarketplaceListing[]
+  auctions         Auction[]
+
+  @@index([tier])
+}
+
+model UserFish {
+  userId         String
+  fishId         String
+  user           User       @relation(fields: [userId], references: [id], onDelete: Cascade)
+  fish           Fish       @relation(fields: [fishId], references: [id], onDelete: Cascade)
+  count          Int        @default(0)
+  inventoryCount Int        @default(0)
+  largestSize    Float      @default(0)
+  smallestSize   Float      @default(0)
+  shinyCount     Int        @default(0)
+  caughtAt       DateTime[] @default([])
+
+  @@id([userId, fishId])
+}
+
+model CatchRecord {
+  id       String   @id @default(cuid())
+  userId   String
+  fishId   String
+  user     User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  fish     Fish     @relation(fields: [fishId], references: [id], onDelete: Cascade)
+  size     Float
+  quality  Int
+  shiny    Boolean  @default(false)
+  value    Int
+  sold     Boolean  @default(false)
+  listed   Boolean  @default(false)
+  caughtAt DateTime @default(now())
+
+  @@index([userId, sold, listed])
+  @@index([userId, fishId, sold, listed, caughtAt])
+  @@index([fishId])
+}
+
+model Collection {
+  userId        String
+  category      String
+  user          User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  completed     Boolean @default(false)
+  rewardClaimed Boolean @default(false)
+
+  @@id([userId, category])
+}
+
+model Quest {
+  id          String      @id
+  type        QuestType
+  requirement Json
+  reward      Json
+  userQuests  UserQuest[]
+
+  @@index([type])
+}
+
+model UserQuest {
+  userId    String
+  questId   String
+  user      User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  quest     Quest   @relation(fields: [questId], references: [id], onDelete: Cascade)
+  progress  Int     @default(0)
+  completed Boolean @default(false)
+  claimed   Boolean @default(false)
+
+  @@id([userId, questId])
+}
+
+model Achievement {
+  id               String            @id
+  name             String
+  description      String
+  tiers            Json
+  rewards          Json
+  userAchievements UserAchievement[]
+}
+
+model UserAchievement {
+  userId        String
+  achievementId String
+  user          User        @relation(fields: [userId], references: [id], onDelete: Cascade)
+  achievement   Achievement @relation(fields: [achievementId], references: [id], onDelete: Cascade)
+  tier          Int
+  unlockedAt    DateTime    @default(now())
+
+  @@id([userId, achievementId])
+}
+
+model Team {
+  id            String       @id @default(cuid())
+  name          String       @unique
+  leaderId      String
+  leader        User         @relation("TeamLeader", fields: [leaderId], references: [id])
+  members       String[]     @default([])
+  storageCoins  Int          @default(0)
+  storagePearls Int          @default(0)
+  weeklyScore   Int          @default(0)
+  createdAt     DateTime     @default(now())
+  teamMembers   TeamMember[]
+
+  @@index([weeklyScore])
+}
+
+model TeamMember {
+  teamId   String
+  userId   String
+  team     Team     @relation(fields: [teamId], references: [id], onDelete: Cascade)
+  user     User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  role     TeamRole @default(Member)
+  joinedAt DateTime @default(now())
+
+  @@id([teamId, userId])
+  @@unique([userId])
+}
+
+model MarketplaceListing {
+  id        String   @id @default(cuid())
+  sellerId  String
+  fishId    String
+  seller    User     @relation(fields: [sellerId], references: [id], onDelete: Cascade)
+  fish      Fish     @relation(fields: [fishId], references: [id])
+  quantity  Int
+  price     Int
+  recordIds String[] @default([])
+  listedAt  DateTime @default(now())
+  sold      Boolean  @default(false)
+
+  @@index([sold, listedAt])
+}
+
+model Auction {
+  id            String        @id @default(cuid())
+  sellerId      String
+  fishId        String
+  recordId      String?
+  seller        User          @relation("AuctionSeller", fields: [sellerId], references: [id], onDelete: Cascade)
+  fish          Fish          @relation(fields: [fishId], references: [id])
+  startingPrice Int
+  currentBid    Int
+  highestBidder String?
+  bidder        User?         @relation("AuctionBidder", fields: [highestBidder], references: [id])
+  endsAt        DateTime
+  status        AuctionStatus @default(Open)
+  createdAt     DateTime      @default(now())
+
+  @@index([status, endsAt])
+}
+
+model Pet {
+  id       String    @id
+  name     String
+  type     String
+  ability  Json
+  rarity   PetRarity
+  userPets UserPet[]
+
+  @@index([rarity])
+}
+
+model UserPet {
+  userId   String
+  petId    String
+  user     User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  pet      Pet     @relation(fields: [petId], references: [id], onDelete: Cascade)
+  level    Int     @default(1)
+  exp      Int     @default(0)
+  equipped Boolean @default(false)
+
+  @@id([userId, petId])
+  @@index([userId, equipped])
+}
+
+model WeatherState {
+  mapId          String   @id
+  map            Map      @relation(fields: [mapId], references: [id], onDelete: Cascade)
+  currentWeather String
+  nextChangeAt   DateTime
+}
+
+model Season {
+  id        String           @id
+  name      String
+  startDate DateTime
+  endDate   DateTime
+  theme     String
+  active    Boolean          @default(false)
+  progress  SeasonProgress[]
+
+  @@index([active])
+}
+
+model SeasonProgress {
+  userId      String
+  seasonId    String
+  user        User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  season      Season  @relation(fields: [seasonId], references: [id], onDelete: Cascade)
+  exp         Int     @default(0)
+  freeClaimed Int[]   @default([])
+  paidClaimed Int[]   @default([])
+  premium     Boolean @default(false)
+
+  @@id([userId, seasonId])
+}
+
+model WorldBoss {
+  id            String              @id @default(cuid())
+  name          String
+  hp            Int
+  maxHp         Int
+  spawnMap      String
+  map           Map                 @relation(fields: [spawnMap], references: [id])
+  spawnedAt     DateTime            @default(now())
+  defeatedAt    DateTime?
+  participation BossParticipation[]
+
+  @@index([defeatedAt, spawnedAt])
+}
+
+model BossParticipation {
+  bossId        String
+  userId        String
+  boss          WorldBoss @relation(fields: [bossId], references: [id], onDelete: Cascade)
+  user          User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  damage        Int       @default(0)
+  rewardClaimed Boolean   @default(false)
+
+  @@id([bossId, userId])
+}
+
+model GiftCode {
+  code         String         @id
+  coins        Int            @default(0)
+  pearls       Int            @default(0)
+  milkDrops    Int            @default(0)
+  maxClaims    Int            @default(1)
+  claimedCount Int            @default(0)
+  active       Boolean        @default(true)
+  expiresAt    DateTime?
+  createdAt    DateTime       @default(now())
+  users        UserGiftCode[]
+}
+
+model UserGiftCode {
+  userId    String
+  code      String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  giftCode  GiftCode @relation(fields: [code], references: [code], onDelete: Cascade)
+  claimedAt DateTime @default(now())
+
+  @@id([userId, code])
+}
+
+model UserItem {
+  userId   String
+  itemId   String
+  user     User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+  quantity Int    @default(0)
+
+  @@id([userId, itemId])
+}
+
+model Config {
+  key   String @id
+  value Json
+}

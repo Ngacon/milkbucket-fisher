@@ -1,0 +1,44 @@
+{
+  "common": {
+    "coins": "Coins",
+    "pearls": "Pearls",
+    "milkDrops": "Milk Drops",
+    "error": "Something spilled the milk. Please try again later.",
+    "notReady": "The world is not seeded yet. Run `npm run prisma:migrate && npm run seed`.",
+    "adminOnly": "This command is admin-only.",
+    "unknownCommand": "Unknown command. Use `m!help` or `/help`."
+  },
+  "help": {
+    "title": "Milkbucket",
+    "description": "A tactical fishing bot: tension mini-game, 200-fish collection, teams, marketplace, bosses, seasons, and anti-inflation economy.",
+    "fields": {
+      "fishing": "`/fish`, `/bag`, `/sell`, `/map`, `/shop`",
+      "social": "`/profile`, `/team`, `/leaderboard`, `/market`",
+      "progression": "`/quests`, `/language`, `/casino`, `/admin`"
+    }
+  },
+  "fishing": {
+    "start": "You cast at {{map}}. The water starts moving...",
+    "caught": "Caught **{{fish}}** {{stars}} | size **{{size}}kg** | value **{{value}} coins**{{shiny}}",
+    "failed": "The fish escaped. Tension drifted out of control.",
+    "perfect": " Perfect catch!",
+    "shiny": " | Shiny x10!",
+    "buttons": {
+      "pull": "Pull",
+      "hold": "Hold",
+      "slack": "Slack"
+    }
+  },
+  "economy": {
+    "sold": "Sold {{count}} fish for **{{coins}} coins**. Market multiplier: x{{multiplier}}.",
+    "emptyBag": "Your fish bag is empty.",
+    "paid": "Paid **{{amount}} coins** to {{user}}. {{tax}} coins were burned as tax."
+  },
+  "profile": {
+    "title": "{{user}}'s Profile",
+    "line": "Level {{level}} | {{coins}} coins | {{pearls}} pearls | {{milkDrops}} milk drops"
+  },
+  "language": {
+    "changed": "Language changed to English."
+  }
+}

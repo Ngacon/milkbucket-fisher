@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Milkbucket Dashboard</title>
+    <style>
+      body { font-family: Inter, system-ui, sans-serif; background: #fffaf0; color: #2b2b2b; margin: 32px; }
+      a { color: #4c7f99; }
+      .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; }
+      .card { background: #ffffff; border: 1px solid #f0dfc4; border-radius: 8px; padding: 16px; }
+      .value { font-size: 28px; font-weight: 700; }
+    </style>
+  </head>
+  <body>
+    <h1>Milkbucket Dashboard</h1>
+    <p><a href="/dashboard/leaderboard?key=<%= key %>">Leaderboard</a> | <a href="/dashboard/codes?key=<%= key %>">Gift Codes</a></p>
+    <div class="grid">
+      <div class="card"><div>Users</div><div class="value"><%= users %></div></div>
+      <div class="card"><div>Catches</div><div class="value"><%= catches %></div></div>
+      <div class="card"><div>Active Listings</div><div class="value"><%= activeListings %></div></div>
+      <div class="card"><div>Teams</div><div class="value"><%= teams %></div></div>
+    </div>
+    <h2>World Boss</h2>
+    <% if (activeBoss) { %>
+      <div class="card"><strong><%= activeBoss.name %></strong><br />HP: <%= activeBoss.hp %>/<%= activeBoss.maxHp %></div>
+    <% } else { %>
+      <p>No active boss.</p>
+    <% } %>
+  </body>
+</html>

@@ -1,0 +1,7 @@
+[
+  {"id":"pet_owl","name":"Owl","type":"Bird","ability":{"key":"night_luck","value":8},"rarity":"Rare"},
+  {"id":"pet_cat","name":"Cream Cat","type":"Cat","ability":{"key":"small_control","value":10},"rarity":"Common"},
+  {"id":"pet_dog","name":"Cookie Dog","type":"Dog","ability":{"key":"secret_spot","value":7},"rarity":"Uncommon"},
+  {"id":"pet_otter","name":"Pearl Otter","type":"Otter","ability":{"key":"pearl_drop","value":6},"rarity":"Epic"},
+  {"id":"pet_dragon","name":"Dairy Dragon","type":"Dragon","ability":{"key":"boss_damage","value":12},"rarity":"Legendary"}
+]

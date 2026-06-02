@@ -1,0 +1,362 @@
+[
+  {
+    "habitat": "milk_pond",
+    "weather": ["Sunny", "Rainy", "Foggy", "Starfall"],
+    "time": ["Day", "Dusk", "Night"],
+    "bait": ["crumb_bait", "milk_corn"],
+    "fish": [
+      ["milk_carp", "Cá Chép Sữa", "Common", 18, 88, "Loài cá đầu tiên của nhiều ngư dân, thích bọt sữa ấm."],
+      ["butter_goby", "Cá Bống Bơ", "Common", 22, 84, "Trơn như bơ và thường núp dưới lá sen."],
+      ["cookie_minno", "Cá Vụn Bánh", "Common", 28, 78, "Theo mùi bánh quy rơi xuống mặt ao."],
+      ["cream_perch", "Cá Rô Kem", "Uncommon", 42, 62, "Vảy có lớp ánh kem mỏng."],
+      ["foam_tetra", "Cá Bọt Trắng", "Uncommon", 48, 58, "Xuất hiện khi mặt nước có vòng xoáy nhỏ."],
+      ["warm_koi", "Koi Sữa Ấm", "Rare", 90, 34, "Nghe nói mang lại may mắn cho daily streak."],
+      ["moon_spoonfish", "Cá Muỗng Trăng", "Rare", 130, 26, "Chỉ nổi rõ khi trăng in xuống ao."],
+      ["pastel_turtle", "Rùa Pastel", "Epic", 260, 13, "Không phải cá, nhưng sổ collection vẫn tính vì quá dễ thương."],
+      ["star_milkfish", "Cá Sữa Sao", "Legendary", 620, 5, "Dấu sao trên lưng đổi màu theo mùa."],
+      ["hidden_bucket_eel", "Lươn Xô Bí Mật", "Secret", 1200, 2, "Lore của Koi Sữa Ấm nhắc đến chiếc xô nằm dưới cầu gỗ."]
+    ]
+  },
+  {
+    "habitat": "butter_creek",
+    "weather": ["Sunny", "Rainy", "Windy", "Rainbow"],
+    "time": ["Day", "Dawn", "Dusk"],
+    "bait": ["berry_bait", "river_grain"],
+    "fish": [
+      ["butter_stream_dace", "Cá Dace Suối Bơ", "Common", 35, 86, "Bơi theo dòng nhanh nhưng dễ đoán."],
+      ["honey_fin", "Cá Vây Mật", "Common", 44, 80, "Thích nước ngọt và ánh nắng nhẹ."],
+      ["silver_skipper", "Cá Bạc Nhảy", "Common", 52, 75, "Nhảy lên khỏi nước khi gió thổi mạnh."],
+      ["rainbow_loach", "Chạch Cầu Vồng", "Uncommon", 78, 56, "Màu thân chỉ rực lên sau mưa."],
+      ["buttermilk_trout", "Cá Hồi Bơ Sữa", "Uncommon", 94, 51, "Có vị trí spawn đổi theo vận tốc dòng."],
+      ["jamscale_shad", "Cá Vảy Mứt", "Rare", 160, 30, "Rất thích mồi berry."],
+      ["brook_lantern", "Đèn Lồng Suối", "Rare", 210, 23, "Tỏa sáng dưới bóng cầu đá."],
+      ["river_crowned_koi", "Koi Vương Miện Suối", "Epic", 410, 12, "Có vòng bọt trên đầu như vương miện."],
+      ["rainbow_butter_drake", "Long Ngư Bơ Cầu Vồng", "Legendary", 980, 5, "Chỉ xuất hiện khi cầu vồng chạm xuống suối."],
+      ["underbridge_wish", "Điều Ước Dưới Cầu", "Secret", 1800, 2, "Nếu lore nhắc cầu đá, hãy thử lúc bình minh sau mưa."]
+    ]
+  },
+  {
+    "habitat": "cookie_marsh",
+    "weather": ["Foggy", "Rainy", "Sunny", "BloodMoon"],
+    "time": ["Night", "Midnight", "Dusk"],
+    "bait": ["shadow_bait", "marsh_cookie"],
+    "fish": [
+      ["mud_milkling", "Cá Sữa Bùn", "Common", 75, 84, "Càng bẩn càng khỏe."],
+      ["crumb_catfish", "Cá Trê Vụn Bánh", "Common", 92, 78, "Râu dài quét vụn bánh dưới bùn."],
+      ["moss_cookie_fry", "Cá Con Rêu Bánh", "Common", 110, 72, "Hay đi thành đàn nhỏ."],
+      ["fog_pancake_ray", "Cá Đuối Bánh Mỏng", "Uncommon", 170, 54, "Mỏng đến mức biến mất trong sương."],
+      ["swamp_jelly", "Sứa Đầm Lầy", "Uncommon", 195, 49, "Ánh sáng xanh của nó báo hiệu nước độc."],
+      ["molasses_pike", "Cá Chó Mật Mía", "Rare", 330, 29, "Tấn công nhanh khi tension cao."],
+      ["bog_bell_snail", "Ốc Chuông Đầm", "Rare", 420, 22, "Kêu leng keng lúc nửa đêm."],
+      ["bloodmoon_mudskipper", "Cá Leo Bùn Trăng Máu", "Epic", 850, 11, "Meta Blood Moon bắt đầu từ nó."],
+      ["cookie_witchfish", "Cá Phù Thủy Bánh Quy", "Legendary", 1800, 5, "Ném lời nguyền làm vùng xanh trôi lệch."],
+      ["sunken_lunchbox", "Hộp Cơm Chìm", "Secret", 3200, 2, "Không ai biết ai đã làm rơi hộp cơm trong đầm."]
+    ]
+  },
+  {
+    "habitat": "pastel_coast",
+    "weather": ["Sunny", "Windy", "Rainy", "Stormy"],
+    "time": ["Day", "Dusk", "Night"],
+    "bait": ["shell_lure", "salt_crumb"],
+    "fish": [
+      ["pastel_sardine", "Cá Mòi Pastel", "Common", 120, 82, "Nhỏ, nhiều, là nguồn tiền ổn định tier biển."],
+      ["foam_mackerel", "Cá Thu Bọt", "Common", 145, 77, "Vảy phản chiếu màu trắng sữa."],
+      ["shore_puffer", "Cá Nóc Bờ Kem", "Common", 175, 70, "Phồng lên khi người chơi spam quá nhanh."],
+      ["salted_caramel_crab", "Cua Caramel Muối", "Uncommon", 260, 52, "Được marketplace săn vì crafting."],
+      ["windfin_tuna", "Cá Ngừ Vây Gió", "Uncommon", 310, 46, "Tăng tốc khi thời tiết Windy."],
+      ["storm_sailfish", "Cá Kiếm Bão", "Rare", 520, 27, "Khó nhưng cho exp tốt."],
+      ["pearlscale_snapper", "Cá Hồng Vảy Ngọc", "Rare", 690, 20, "Có cơ hội rơi Pearls."],
+      ["painted_manta", "Cá Đuối Sơn Màu", "Epic", 1350, 10, "Vùng xanh di chuyển theo nhịp sóng."],
+      ["whitewave_serpent", "Rắn Biển Sóng Trắng", "Legendary", 2900, 4, "Được nhắc trong các event Storm."],
+      ["shell_song_siren", "Siren Vỏ Ốc", "Secret", 5200, 2, "Chỉ nghe thấy khi đứng ở bờ biển lúc hoàng hôn bão."]
+    ]
+  },
+  {
+    "habitat": "yogurt_cavern",
+    "weather": ["Chilly", "Foggy", "Crystal", "Sunny"],
+    "time": ["Day", "Night", "Midnight"],
+    "bait": ["glow_worm", "cave_curd"],
+    "fish": [
+      ["curdling_gudgeon", "Cá Bống Kết Tủa", "Common", 210, 80, "Sống trong hồ yogurt lạnh."],
+      ["dripstone_eel", "Lươn Thạch Nhũ", "Common", 250, 74, "Trượt theo giọt nước rơi."],
+      ["pale_cave_tetra", "Cá Hang Mắt Trắng", "Common", 300, 68, "Không cần mắt vẫn né lưỡi câu rất tốt."],
+      ["crystal_fin", "Cá Vây Tinh Thể", "Uncommon", 450, 50, "Ưa thời tiết Crystal trong hang."],
+      ["yogurt_lobster", "Tôm Hùm Yogurt", "Uncommon", 540, 45, "Nguyên liệu pet food cao cấp."],
+      ["echo_catfish", "Cá Trê Tiếng Vọng", "Rare", 880, 26, "Tension phản hồi trễ một nhịp."],
+      ["frosted_batfish", "Cá Dơi Phủ Sương", "Rare", 1120, 19, "Bơi trên trần hang như dơi."],
+      ["stalactite_guardian", "Hộ Vệ Thạch Nhũ", "Epic", 2250, 9, "Cần power build để kéo xuống."],
+      ["crystal_yogurt_leviathan", "Leviathan Yogurt Tinh Thể", "Legendary", 4700, 4, "Không gian quanh nó vang như chuông."],
+      ["glow_spoon_oracle", "Nhà Tiên Tri Muỗng Sáng", "Secret", 8400, 2, "Lore của cá hang nói về chiếc muỗng phát sáng lúc nửa đêm."]
+    ]
+  },
+  {
+    "habitat": "strawberry_lagoon",
+    "weather": ["Sunny", "Rainbow", "Rainy", "Starfall"],
+    "time": ["Dawn", "Day", "Night"],
+    "bait": ["berry_bait", "sweet_lure"],
+    "fish": [
+      ["berry_fry", "Cá Con Dâu", "Common", 330, 80, "Bơi thành hình trái tim vào bình minh."],
+      ["pinkscale_roach", "Cá Rô Vảy Hồng", "Common", 390, 74, "Có vảy hồng như yogurt dâu."],
+      ["jamfin_smelt", "Cá Trích Vây Mứt", "Common", 460, 68, "Thường bị săn để craft berry bait."],
+      ["strawberry_prawn", "Tôm Dâu Tây", "Uncommon", 700, 50, "Cho màu đỏ pastel đẹp trong collection."],
+      ["lagoon_sundae_fish", "Cá Kem Ly Đầm", "Uncommon", 820, 44, "Thích Rainbow hơn Sunny."],
+      ["rosewater_koi", "Koi Nước Hoa Hồng", "Rare", 1350, 25, "Cực hợp luck build early-mid."],
+      ["starberry_ray", "Cá Đuối Dâu Sao", "Rare", 1700, 18, "Xuất hiện dưới Starfall."],
+      ["jam_krakenling", "Kraken Mứt Nhỏ", "Epic", 3400, 9, "Tua của nó dính như mứt."],
+      ["starlit_shortcake_whale", "Cá Voi Bánh Kem Sao", "Legendary", 7200, 4, "Không nặng nhất, nhưng quality thường cao."],
+      ["missing_recipe_fish", "Cá Công Thức Thất Lạc", "Secret", 13000, 2, "Có hint trong recipe chưa mở khóa của berry bait."]
+    ]
+  },
+  {
+    "habitat": "thunder_fjord",
+    "weather": ["Stormy", "Rainy", "Foggy", "Sunny"],
+    "time": ["Day", "Dusk", "Night"],
+    "bait": ["storm_charm", "salt_crumb"],
+    "fish": [
+      ["fjord_herring", "Cá Trích Vịnh", "Common", 520, 78, "Nguồn coins ổn định nhưng mini-game khá giật."],
+      ["rain_plaice", "Cá Bơn Mưa", "Common", 620, 72, "Nằm sát đá khi bão lớn."],
+      ["cowbell_cod", "Cá Tuyết Chuông Bò", "Common", 730, 66, "Có tiếng leng keng khi kéo dây."],
+      ["spark_shrimp", "Tôm Tia Lửa", "Uncommon", 1080, 48, "Có thể rơi nguyên liệu Storm."],
+      ["stormjaw_pike", "Cá Chó Hàm Bão", "Uncommon", 1300, 42, "Power thấp sẽ bị nó kéo ngược."],
+      ["thunder_manta", "Cá Đuối Sấm", "Rare", 2150, 24, "Tăng Pearl drop khi Stormy."],
+      ["fjord_lantern_whale", "Cá Voi Đèn Vịnh", "Rare", 2700, 18, "Bơi chậm nhưng tension nặng."],
+      ["boltfin_serpent", "Rắn Vây Sét", "Epic", 5400, 8, "Nhảy tension theo cú sét."],
+      ["milkstorm_dragon", "Rồng Bão Sữa", "Legendary", 11200, 4, "World boss nhỏ từng là con này."],
+      ["cloudhook_ghost", "Ma Móc Câu Mây", "Secret", 21000, 2, "Chỉ để lại một tiếng chuông khi hụt perfect."]
+    ]
+  },
+  {
+    "habitat": "mint_glacier",
+    "weather": ["Chilly", "Snowy", "Crystal", "Aurora"],
+    "time": ["Day", "Night", "Dawn"],
+    "bait": ["mint_bait", "frost_cookie"],
+    "fish": [
+      ["mint_smelt", "Cá Trích Bạc Hà", "Common", 800, 78, "Lạnh đến mức cooldown có vẻ nhanh hơn."],
+      ["snowcap_perch", "Cá Rô Mũ Tuyết", "Common", 950, 72, "Đầu có lớp tuyết không tan."],
+      ["icecube_fry", "Cá Viên Đá", "Common", 1120, 66, "Kêu lách cách trong túi."],
+      ["glacier_char", "Cá Char Sông Băng", "Uncommon", 1650, 47, "Ổn cho build Power."],
+      ["mint_jelly", "Sứa Bạc Hà", "Uncommon", 1980, 41, "Ưa Aurora."],
+      ["snowblind_ray", "Cá Đuối Mù Tuyết", "Rare", 3300, 23, "Làm vùng xanh nhạt màu."],
+      ["aurora_sturgeon", "Cá Tầm Cực Quang", "Rare", 4200, 17, "Cho Pearls tốt khi Aurora."],
+      ["frozen_ladlefish", "Cá Muỗng Đóng Băng", "Epic", 8300, 8, "Gợi ý về map Aurora Basin."],
+      ["mint_glacier_king", "Vua Băng Bạc Hà", "Legendary", 17500, 4, "Cần giữ tension thấp và đều."],
+      ["zero_degree_wish", "Điều Ước Không Độ", "Secret", 31000, 2, "Không xuất hiện nếu bạn mang bait nóng."]
+    ]
+  },
+  {
+    "habitat": "caramel_reef",
+    "weather": ["Sunny", "Windy", "Rainbow", "Stormy"],
+    "time": ["Dawn", "Day", "Dusk"],
+    "bait": ["coral_bait", "shell_lure"],
+    "fish": [
+      ["caramel_clownfish", "Cá Hề Caramel", "Common", 1250, 76, "Rất dễ perfect nếu dùng Speed build."],
+      ["toffee_tang", "Cá Tang Kẹo Bơ", "Common", 1480, 70, "Bơi ngang theo đàn."],
+      ["reef_cookie_crab", "Cua Bánh Rạn", "Common", 1750, 64, "Có giá khi team craft đồ."],
+      ["salted_coral_eel", "Lươn San Hô Muối", "Uncommon", 2600, 46, "Tăng tension từng nhịp ngắn."],
+      ["rainbow_anemonefish", "Cá Hải Quỳ Cầu Vồng", "Uncommon", 3100, 40, "Ưa Rainbow nhất."],
+      ["prism_snapper", "Cá Hồng Lăng Kính", "Rare", 5100, 22, "Quality 4-5 sao khá thường gặp."],
+      ["storm_coral_ray", "Đuối San Hô Bão", "Rare", 6500, 16, "Tension khó trong Stormy."],
+      ["reef_bell_guardian", "Hộ Vệ Chuông Rạn", "Epic", 12800, 8, "Được team săn vì weekly score."],
+      ["caramel_crown_whale", "Cá Voi Vương Miện Caramel", "Legendary", 27000, 4, "Một cú bắt hoàn hảo đủ làm market chú ý."],
+      ["dawn_prism_nautilus", "Ốc Anh Vũ Lăng Kính Bình Minh", "Secret", 48000, 2, "Tên đã nói gần hết điều kiện bí mật."]
+    ]
+  },
+  {
+    "habitat": "mocha_ruins",
+    "weather": ["Foggy", "BloodMoon", "Starfall", "Sunny"],
+    "time": ["Dusk", "Night", "Midnight"],
+    "bait": ["ancient_hook", "shadow_bait"],
+    "fish": [
+      ["mocha_minnow", "Cá Nhỏ Mocha", "Common", 1900, 75, "Sống quanh cột đá nứt."],
+      ["ruin_loach", "Chạch Tàn Tích", "Common", 2250, 69, "Để lại vệt cà phê dưới nước."],
+      ["cocoa_shellfish", "Sò Ca Cao", "Common", 2650, 63, "Dùng trong crafting pet food."],
+      ["glyph_goby", "Cá Bống Cổ Tự", "Uncommon", 3900, 44, "Lore của nó có vài chữ bị mất."],
+      ["moon_espresso_eel", "Lươn Espresso Trăng", "Uncommon", 4650, 38, "Thích Blood Moon."],
+      ["relic_snapper", "Cá Hồng Di Vật", "Rare", 7600, 21, "Có thể rơi item unlock story quest."],
+      ["starfall_monkfish", "Cá Sư Starfall", "Rare", 9600, 16, "Miệng rộng, vùng xanh nhỏ."],
+      ["mocha_golem_fish", "Cá Golem Mocha", "Epic", 19000, 7, "Power build phát huy rõ."],
+      ["ruined_oracle_whale", "Cá Voi Tiên Tri Tàn Tích", "Legendary", 40000, 4, "Lore chỉ đúng trong season hiện tại."],
+      ["black_cup_specter", "Bóng Ma Ly Đen", "Secret", 72000, 2, "Không thích ánh sáng, không thích ồn ào."]
+    ]
+  },
+  {
+    "habitat": "honey_delta",
+    "weather": ["Sunny", "Rainy", "Windy", "GoldenHour"],
+    "time": ["Day", "Dawn", "Dusk"],
+    "bait": ["honey_bait", "river_grain"],
+    "fish": [
+      ["delta_dace", "Cá Dace Châu Thổ", "Common", 2800, 74, "Dễ câu, tốt để farm coins không lạm phát."],
+      ["honey_milk_carp", "Cá Chép Mật Sữa", "Common", 3350, 68, "Giá ổn khi GoldenHour."],
+      ["bee_stripe_goby", "Cá Bống Sọc Ong", "Common", 3950, 62, "Bơi ziczac như ong."],
+      ["sun_pollen_shad", "Cá Shad Phấn Nắng", "Uncommon", 5800, 43, "Ưa Sunny và honey bait."],
+      ["rainbarb", "Cá Ngạnh Mưa", "Uncommon", 7000, 37, "Rơi nguyên liệu crafting sau mưa."],
+      ["golden_ladlefish", "Cá Muỗng Vàng", "Rare", 11200, 20, "Có hệ số giá tốt trong market."],
+      ["delta_queen_prawn", "Tôm Nữ Hoàng Châu Thổ", "Rare", 14200, 15, "Team hay đấu giá con quality 5 sao."],
+      ["honeycomb_ray", "Đuối Tổ Ong", "Epic", 28000, 7, "Mẫu vảy như tổ ong."],
+      ["goldenhour_cowfish", "Cá Bò Giờ Vàng", "Legendary", 59000, 4, "Không nên bán lúc market crash."],
+      ["sealed_honey_contract", "Khế Ước Mật Niêm Phong", "Secret", 105000, 2, "Một vật thể hơn là cá, nhưng boss rất thích nó."]
+    ]
+  },
+  {
+    "habitat": "obsidian_spring",
+    "weather": ["Ashfall", "Stormy", "Sunny", "BloodMoon"],
+    "time": ["Day", "Night", "Midnight"],
+    "bait": ["lava_charm", "charred_bait"],
+    "fish": [
+      ["ash_fry", "Cá Tro Nhỏ", "Common", 4200, 72, "Cắn câu rất nhanh khi Ashfall."],
+      ["warm_obsidian_goby", "Cá Bống Obsidian Ấm", "Common", 5000, 66, "Da đen bóng như đá núi lửa."],
+      ["ember_sardine", "Cá Mòi Than Hồng", "Common", 5900, 60, "Phát sáng trong túi đồ."],
+      ["lava_milk_eel", "Lươn Sữa Dung Nham", "Uncommon", 8700, 41, "Tension tăng nóng dần."],
+      ["basalt_crab", "Cua Bazan", "Uncommon", 10400, 35, "Vỏ dùng cho rod upgrade."],
+      ["blood_ash_koi", "Koi Tro Trăng Máu", "Rare", 17000, 19, "BloodMoon làm nó hung hăng hơn."],
+      ["magma_spoonfish", "Cá Muỗng Magma", "Rare", 21500, 14, "Giữ vùng xanh gần giữa thanh để ổn định."],
+      ["obsidian_jaw", "Hàm Obsidian", "Epic", 42500, 7, "Có thể phá combo perfect."],
+      ["volcanic_cream_drake", "Long Ngư Kem Núi Lửa", "Legendary", 90000, 3, "Boss breaker rod rất hợp."],
+      ["sleeping_caldera_heart", "Trái Tim Miệng Núi Ngủ", "Secret", 160000, 1, "Nếu câu trúng, cả map đổi thời tiết."]
+    ]
+  },
+  {
+    "habitat": "silk_kelp_forest",
+    "weather": ["Rainy", "Foggy", "Sunny", "MoonTide"],
+    "time": ["Day", "Night", "Dusk"],
+    "bait": ["kelp_bait", "silk_worm"],
+    "fish": [
+      ["silk_kelp_goby", "Cá Bống Tảo Lụa", "Common", 6200, 71, "Núp giữa rừng tảo."],
+      ["threadfin_sardine", "Cá Mòi Vây Chỉ", "Common", 7400, 65, "Để lại sợi bạc trên dây câu."],
+      ["green_milk_wrasse", "Cá Mó Sữa Xanh", "Common", 8700, 59, "Đẹp trong collection màu pastel."],
+      ["fog_leaf_ray", "Đuối Lá Sương", "Uncommon", 12800, 40, "Khó thấy trong Foggy."],
+      ["moonkelp_eel", "Lươn Tảo Trăng", "Uncommon", 15400, 34, "MoonTide tăng spawn mạnh."],
+      ["silk_queen_jelly", "Sứa Nữ Hoàng Lụa", "Rare", 25000, 18, "Rơi Pearls theo chuỗi streak."],
+      ["kelp_armor_crab", "Cua Giáp Tảo", "Rare", 31800, 14, "Nguyên liệu team storage hay thiếu."],
+      ["forest_lanternfish", "Cá Đèn Rừng Tảo", "Epic", 63000, 6, "Ánh sáng chỉ hiện khi không dùng bait sai."],
+      ["moon_tide_leviathan", "Leviathan Thủy Triều Trăng", "Legendary", 132000, 3, "Một trong các mục tiêu endgame đầu tiên."],
+      ["silk_door_keyfish", "Cá Chìa Khóa Cửa Lụa", "Secret", 230000, 1, "Lore mở đường đến Vực Ngọc Trai."]
+    ]
+  },
+  {
+    "habitat": "aurora_basin",
+    "weather": ["Aurora", "Snowy", "Crystal", "Starfall"],
+    "time": ["Dawn", "Night", "Midnight"],
+    "bait": ["prism_bait", "mint_bait"],
+    "fish": [
+      ["aurora_fry", "Cá Con Cực Quang", "Common", 9000, 70, "Có đường sáng chạy dọc thân."],
+      ["snowglow_perch", "Cá Rô Tuyết Sáng", "Common", 10800, 64, "Dễ catch khi Dawn."],
+      ["crystal_milkling", "Cá Sữa Tinh Thể", "Common", 12700, 58, "Vảy rơi ra như đá đường."],
+      ["prism_char", "Cá Char Lăng Kính", "Uncommon", 18800, 39, "Bị prism bait thu hút."],
+      ["starfall_smelt", "Cá Trích Mưa Sao", "Uncommon", 22600, 33, "Có thể bắt ở Starfall."],
+      ["aurora_ribbon_eel", "Lươn Ruy Băng Cực Quang", "Rare", 36800, 17, "Bơi thành đường cong rất khó đoán."],
+      ["basin_glass_ray", "Đuối Kính Lòng Chảo", "Rare", 46800, 13, "Quality cao bán đấu giá tốt."],
+      ["northlight_sturgeon", "Cá Tầm Bắc Quang", "Epic", 92000, 6, "Cần Luck hoặc Pet tốt."],
+      ["aurora_crown_whale", "Cá Voi Vương Miện Cực Quang", "Legendary", 195000, 3, "Được mùa season buff rất mạnh."],
+      ["first_dawn_spirit", "Linh Hồn Bình Minh Đầu Tiên", "Secret", 340000, 1, "Chỉ hiện khi Dawn và Aurora cùng lúc."]
+    ]
+  },
+  {
+    "habitat": "clockwork_harbor",
+    "weather": ["Windy", "Foggy", "Starfall", "Sunny"],
+    "time": ["Dawn", "Day", "Dusk"],
+    "bait": ["chrono_bait", "gear_lure"],
+    "fish": [
+      ["gear_sardine", "Cá Mòi Bánh Răng", "Common", 13000, 69, "Bơi theo chu kỳ chính xác."],
+      ["copper_cod", "Cá Tuyết Đồng", "Common", 15600, 63, "Rung dây như đồng hồ."],
+      ["minute_hand_goby", "Cá Bống Kim Phút", "Common", 18400, 57, "Thường cắn câu đúng phút chẵn."],
+      ["fog_clock_crab", "Cua Đồng Hồ Sương", "Uncommon", 27000, 38, "Có thể rơi gear_lure."],
+      ["windup_eel", "Lươn Lên Dây", "Uncommon", 32400, 32, "Càng lâu càng nhanh."],
+      ["star_tick_tuna", "Cá Ngừ Nhịp Sao", "Rare", 52800, 16, "Starfall làm nó đổi pattern."],
+      ["chronos_ray", "Đuối Chronos", "Rare", 67200, 12, "Time shift rod khắc chế rất tốt."],
+      ["harbor_automaton_fish", "Cá Máy Cảng", "Epic", 132000, 6, "Không bị lure bởi bait thường."],
+      ["clocktower_leviathan", "Leviathan Tháp Đồng Hồ", "Legendary", 280000, 3, "Thắng nó cho rất nhiều exp."],
+      ["stopped_second", "Giây Ngừng Lại", "Secret", 480000, 1, "Không có bóng, không có tiếng, chỉ có một nhịp trễ."]
+    ]
+  },
+  {
+    "habitat": "moonlit_orchard",
+    "weather": ["Starfall", "BloodMoon", "Foggy", "Sunny"],
+    "time": ["Night", "Midnight", "Dawn"],
+    "bait": ["moon_cookie", "sweet_lure"],
+    "fish": [
+      ["orchard_minnow", "Cá Nhỏ Vườn Trăng", "Common", 19000, 68, "Trốn dưới cánh hoa rơi."],
+      ["apple_milk_carp", "Cá Chép Táo Sữa", "Common", 22800, 62, "Có mùi táo nhẹ."],
+      ["petal_goby", "Cá Bống Cánh Hoa", "Common", 26900, 56, "Dễ perfect nếu không vội."],
+      ["moon_cookie_crab", "Cua Bánh Trăng", "Uncommon", 39500, 37, "Dùng trong secret spot condition."],
+      ["fog_pear_eel", "Lươn Lê Sương", "Uncommon", 47400, 31, "Foggy làm nó dễ spawn hơn."],
+      ["blood_orchard_koi", "Koi Vườn Trăng Máu", "Rare", 77000, 15, "Blood Moon meta rõ nhất ở map này."],
+      ["star_apple_ray", "Đuối Táo Sao", "Rare", 98000, 12, "Rơi Pearls theo quality."],
+      ["midnight_blossomfish", "Cá Hoa Nửa Đêm", "Epic", 192000, 5, "Chỉ hoạt động mạnh lúc Midnight."],
+      ["orchard_moon_dragon", "Rồng Vườn Trăng", "Legendary", 405000, 3, "Lore chứa hint cá bí ẩn của cả season."],
+      ["forbidden_milk_apple", "Táo Sữa Cấm", "Secret", 700000, 1, "Không phải cá, nhưng cắn câu như đã chờ bạn rất lâu."]
+    ]
+  },
+  {
+    "habitat": "pearl_abyss",
+    "weather": ["Foggy", "Stormy", "MoonTide", "Crystal"],
+    "time": ["Night", "Midnight", "Dusk"],
+    "bait": ["abyss_bait", "pearl_lure"],
+    "fish": [
+      ["abyss_sprat", "Cá Cơm Vực", "Common", 28000, 67, "Nhỏ nhưng áp lực nước làm tension nặng."],
+      ["pearl_goby", "Cá Bống Ngọc", "Common", 33600, 61, "Có cơ hội nhỏ rơi Pearls."],
+      ["fogscale_cod", "Cá Tuyết Vảy Sương", "Common", 39700, 55, "Gần như trong suốt."],
+      ["moon_tide_jelly", "Sứa Thủy Triều Trăng", "Uncommon", 58200, 36, "MoonTide tăng spawn cực rõ."],
+      ["crystal_angler", "Cá Cần Câu Tinh Thể", "Uncommon", 69800, 30, "Tự dụ người câu bằng ánh sáng."],
+      ["abyssal_oyster", "Hàu Vực Sâu", "Rare", 113000, 15, "Pearl source quan trọng."],
+      ["storm_pressure_ray", "Đuối Áp Suất Bão", "Rare", 144000, 11, "Vùng xanh bị ép nhỏ."],
+      ["black_pearl_guardian", "Hộ Vệ Ngọc Đen", "Epic", 282000, 5, "Được săn để enchant rod."],
+      ["abyss_milk_leviathan", "Leviathan Sữa Vực", "Legendary", 595000, 2, "Có thể kích hoạt world boss rumor."],
+      ["the_unopened_shell", "Vỏ Sò Chưa Từng Mở", "Secret", 950000, 1, "Không nên bán, lore của nó là chìa khóa."]
+    ]
+  },
+  {
+    "habitat": "dreaming_void",
+    "weather": ["Starfall", "BloodMoon", "Foggy", "VoidRain"],
+    "time": ["Night", "Midnight", "Dawn"],
+    "bait": ["void_charm", "dream_bait"],
+    "fish": [
+      ["sleepy_nullfish", "Cá Null Ngái Ngủ", "Common", 41000, 66, "Spawn bình thường nhưng hành vi ngẫu nhiên hơn."],
+      ["dream_goby", "Cá Bống Giấc Mơ", "Common", 49200, 60, "Mô tả của nó thay đổi trong bản dịch."],
+      ["fogbyte_sardine", "Cá Mòi Byte Sương", "Common", 58100, 54, "Có pattern gần giống glitch."],
+      ["void_rain_eel", "Lươn Mưa Hư Không", "Uncommon", 85200, 35, "VoidRain là lúc nó mạnh nhất."],
+      ["nightmare_jelly", "Sứa Ác Mộng", "Uncommon", 102000, 29, "Tension giật khi gần perfect."],
+      ["star_sleep_ray", "Đuối Ngủ Sao", "Rare", 166000, 14, "Starfall làm màu nó dịu hơn."],
+      ["bloodmoon_null_koi", "Koi Null Trăng Máu", "Rare", 211000, 10, "BloodMoon hunter rod hợp."],
+      ["dream_eater_cod", "Cá Tuyết Ăn Mộng", "Epic", 414000, 5, "Có thể nuốt một lần nhấn sai."],
+      ["void_crown_oracle", "Tiên Tri Vương Miện Hư Không", "Legendary", 870000, 2, "Lore cho hint Secret content."],
+      ["fish_that_was_not_listed", "Con Cá Không Có Trong Danh Sách", "Secret", 1000000, 1, "Nó có trong DB, nhưng không hiện trong collection cho tới khi bắt được."]
+    ]
+  },
+  {
+    "habitat": "festival_skysea",
+    "weather": ["Rainbow", "GoldenHour", "Starfall", "Stormy"],
+    "time": ["Dawn", "Day", "Dusk"],
+    "bait": ["festival_lure", "prism_bait"],
+    "fish": [
+      ["sky_confetti_fry", "Cá Con Pháo Giấy", "Common", 62000, 65, "Rất nhiều trong season festival."],
+      ["balloon_goby", "Cá Bống Bóng Bay", "Common", 74400, 59, "Tension nhẹ nhưng chạy lung tung."],
+      ["cream_cloud_tuna", "Cá Ngừ Mây Kem", "Common", 87900, 53, "Bơi giữa mây sữa."],
+      ["rainbow_ticket_crab", "Cua Vé Cầu Vồng", "Uncommon", 129000, 34, "Có thể rơi battle pass exp."],
+      ["goldenhour_drizzle", "Cá Mưa Giờ Vàng", "Uncommon", 154000, 28, "Bán đúng lúc rất có giá."],
+      ["star_parade_ray", "Đuối Diễu Hành Sao", "Rare", 251000, 13, "Được team săn cho weekly challenge."],
+      ["storm_banner_eel", "Lươn Cờ Bão", "Rare", 319000, 10, "Stormy làm mini-game khó hơn nhiều."],
+      ["festival_crownfish", "Cá Vương Miện Lễ Hội", "Epic", 625000, 5, "Cosmetic hunters thích shiny của nó."],
+      ["skysea_milk_phoenix", "Phượng Hoàng Sữa Biển Trời", "Legendary", 980000, 2, "Max meaningful value, không cần số vô hạn."],
+      ["last_firework_wish", "Điều Ước Pháo Hoa Cuối", "Secret", 1000000, 1, "Chỉ hiện khi event gần kết thúc."]
+    ]
+  },
+  {
+    "habitat": "team_jail_pond",
+    "weather": ["Cloudy"],
+    "time": ["Any"],
+    "bait": ["none"],
+    "fish": [
+      ["wet_sock", "Tất Ướt", "Common", 0, 90, "Không bán được. Có lẽ là của ai đó spam chat."],
+      ["rusty_can", "Lon Gỉ", "Common", 0, 86, "Jail Pond classic."],
+      ["rubber_duck", "Vịt Cao Su", "Common", 0, 82, "Kêu chút chít khi kéo."],
+      ["sad_seaweed", "Rong Buồn", "Common", 0, 78, "Tự hỏi vì sao mình ở đây."],
+      ["broken_hook", "Móc Câu Gãy", "Uncommon", 0, 62, "Nhắc nhẹ: đừng toxic."],
+      ["timeout_ticket", "Vé Timeout", "Uncommon", 0, 55, "Có hạn dùng 5 phút."],
+      ["muted_bubble", "Bong Bóng Bị Mute", "Rare", 0, 32, "Không phát ra tiếng."],
+      ["jail_koi", "Koi Cải Tạo", "Rare", 0, 24, "Nhìn bạn với ánh mắt tha thứ."],
+      ["warden_bucket", "Xô Cai Ngục", "Epic", 0, 10, "Không bán, chỉ làm kỷ niệm."],
+      ["parole_goldfish", "Cá Vàng Tạm Tha", "Secret", 0, 2, "Cắn câu khi bạn thật sự bình tĩnh lại."]
+    ]
+  }
+]
