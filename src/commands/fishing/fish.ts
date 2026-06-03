@@ -33,8 +33,8 @@ const actionIds: Record<FishingAction, string> = {
   slack: 'fish_slack',
 };
 
-const TURN_TIMEOUT_MS = 12_000;
-const GAME_TIMEOUT_MS = 120_000;
+const TURN_TIMEOUT_MS = 6_000;
+const GAME_TIMEOUT_MS = 75_000;
 
 export const fishCommand: Command = {
   data: new SlashCommandBuilder()

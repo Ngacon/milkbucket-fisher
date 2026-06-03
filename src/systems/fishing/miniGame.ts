@@ -30,12 +30,12 @@ export function createMiniGameState(input: {
   seed?: number;
 }): MiniGameState {
   const seed = input.seed ?? Math.random();
-  const zoneWidth = clamp(30 + input.control * 0.12 - input.difficulty * 0.05, 12, 40);
+  const zoneWidth = clamp(46 + input.control * 0.18 - input.difficulty * 0.025, 28, 64);
   return {
     tension: 50,
     progress: 0,
     round: 0,
-    maxRounds: clamp(6 + Math.floor(input.speed / 22), 6, 10),
+    maxRounds: clamp(5 + Math.floor(input.speed / 18), 5, 12),
     mistakes: 0,
     perfect: true,
     difficulty: input.difficulty,
@@ -65,13 +65,13 @@ export function applyFishingAction(state: MiniGameState, action: FishingAction):
   const wave =
     Math.sin((state.seed * 997 + nextRound * 1.87) % Math.PI) * 14 +
     Math.cos((state.seed * 313 + nextRound * 1.33) % Math.PI) * 9;
-  const drift = (state.difficulty - state.control) * 0.09 + wave * (state.difficulty / 260);
-  const actionForce = action === 'pull' ? 14 : action === 'slack' ? -13 : 2;
+  const drift = (state.difficulty - state.control) * 0.04 + wave * (state.difficulty / 460);
+  const actionForce = action === 'pull' ? 9 : action === 'slack' ? -9 : 1;
   const tension = clamp(state.tension + actionForce + drift, 0, 100);
-  const zoneCenter = clamp(50 + wave, 20, 80);
-  const zoneWidth = clamp(state.zoneWidth - state.difficulty * 0.004 + state.control * 0.002, 10, 42);
+  const zoneCenter = clamp(50 + wave * 0.6, 28, 72);
+  const zoneWidth = clamp(state.zoneWidth - state.difficulty * 0.0015 + state.control * 0.0035, 26, 66);
   const inZone = Math.abs(tension - zoneCenter) <= zoneWidth / 2;
-  const progress = clamp(state.progress + (inZone ? 100 / state.maxRounds : -10), 0, 100);
+  const progress = clamp(state.progress + (inZone ? 135 / state.maxRounds : -1), 0, 100);
   const mistakes = state.mistakes + (inZone ? 0 : 1);
 
   return {
@@ -88,8 +88,8 @@ export function applyFishingAction(state: MiniGameState, action: FishingAction):
 
 export function finishMiniGame(state: MiniGameState): MiniGameResult {
   return {
-    caught: state.progress >= 70 && state.mistakes < 4,
-    perfect: state.perfect && state.progress >= 95,
+    caught: state.progress >= 45 && state.mistakes < 7,
+    perfect: state.perfect && state.progress >= 85,
     score: Math.round(state.progress),
     mistakes: state.mistakes,
   };

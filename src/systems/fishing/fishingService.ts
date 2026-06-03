@@ -122,8 +122,8 @@ export async function createEncounter(context: FishingContext): Promise<Encounte
     fish,
     weather,
     time,
-    difficulty: clamp(map.difficulty + (100 - fish.catchRate) + weatherDifficulty(weather), 1, 320),
-    control: clamp(power + luck * 0.25, 1, 220),
+    difficulty: clamp(map.difficulty * 0.55 + (100 - fish.catchRate) * 0.45 + weatherDifficulty(weather) * 0.5, 1, 190),
+    control: clamp(power * 1.45 + luck * 0.45 + 25, 1, 280),
     speed,
   };
 }
