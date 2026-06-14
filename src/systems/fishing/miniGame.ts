@@ -30,7 +30,7 @@ export function createMiniGameState(input: {
   seed?: number;
 }): MiniGameState {
   const seed = input.seed ?? Math.random();
-  const zoneWidth = clamp(46 + input.control * 0.18 - input.difficulty * 0.025, 28, 64);
+  const zoneWidth = clamp(38 + input.control * 0.14 - input.difficulty * 0.06, 18, 56);
   return {
     tension: 50,
     progress: 0,
@@ -63,9 +63,9 @@ export function renderTensionBar(state: MiniGameState): string {
 export function applyFishingAction(state: MiniGameState, action: FishingAction): MiniGameState {
   const nextRound = state.round + 1;
   const wave =
-    Math.sin((state.seed * 997 + nextRound * 1.87) % Math.PI) * 14 +
-    Math.cos((state.seed * 313 + nextRound * 1.33) % Math.PI) * 9;
-  const drift = (state.difficulty - state.control) * 0.04 + wave * (state.difficulty / 460);
+    Math.sin((state.seed * 997 + nextRound * 1.87) % Math.PI) * 16 +
+    Math.cos((state.seed * 313 + nextRound * 1.33) % Math.PI) * 11;
+  const drift = (state.difficulty - state.control) * 0.065 + wave * (state.difficulty / 280);
   const actionForce = action === 'pull' ? 9 : action === 'slack' ? -9 : 1;
   const tension = clamp(state.tension + actionForce + drift, 0, 100);
   const zoneCenter = clamp(50 + wave * 0.6, 28, 72);
@@ -88,8 +88,8 @@ export function applyFishingAction(state: MiniGameState, action: FishingAction):
 
 export function finishMiniGame(state: MiniGameState): MiniGameResult {
   return {
-    caught: state.progress >= 45 && state.mistakes < 7,
-    perfect: state.perfect && state.progress >= 85,
+    caught: state.progress >= 60 && state.mistakes < 5,
+    perfect: state.perfect && state.progress >= 90,
     score: Math.round(state.progress),
     mistakes: state.mistakes,
   };

@@ -94,6 +94,7 @@ model Profile {
   banner           String  @default("milk-white")
   chatColor        String  @default("#FFFFFF")
   hardcore         Boolean @default(false)
+  activeMapId      String  @default("milk_pond")
 
   @@index([coins])
   @@index([totalFishCaught])

@@ -12,6 +12,7 @@ import {
 import type { Command } from '../../types/command';
 import { getOrCreateUser } from '../../systems/users/userService';
 import { applyHardcoreFailure, createEncounter, recordCatch } from '../../systems/fishing/fishingService';
+import { prisma } from '../../database/prisma';
 import {
   applyFishingAction,
   createMiniGameState,
@@ -48,23 +49,29 @@ export const fishCommand: Command = {
     ),
   prefixAliases: ['fish', 'cau', 'câu'],
   execute: async (interaction) => {
-    const mapId = interaction.options.getString('map') ?? 'milk_pond';
+    const actor = interaction.user;
+    const user = await getOrCreateUser(actor.id, actor.username);
+    const profile = await prisma.profile.findUnique({ where: { userId: user.id } });
+    const mapId = interaction.options.getString('map') ?? profile?.activeMapId ?? 'milk_pond';
     const bait = interaction.options.getString('bait') ?? undefined;
     await interaction.reply('Đang thả cần...');
-    await runFishing(interaction, mapId, bait);
+    await runFishing(interaction, user, mapId, bait);
   },
   executePrefix: async (message, args) => {
-    await runFishing(message, args[0] ?? 'milk_pond', args[1]);
+    const user = await getOrCreateUser(message.author.id, message.author.username);
+    const profile = await prisma.profile.findUnique({ where: { userId: user.id } });
+    const mapId = args[0] ?? profile?.activeMapId ?? 'milk_pond';
+    await runFishing(message, user, mapId, args[1]);
   },
 };
 
 async function runFishing(
   target: ChatInputCommandInteraction | Message,
+  user: Awaited<ReturnType<typeof getOrCreateUser>>,
   mapId: string,
   bait?: string,
 ): Promise<void> {
   const actor = 'user' in target ? target.user : target.author;
-  const user = await getOrCreateUser(actor.id, actor.username);
   const encounter = await createEncounter({ user, mapId, bait });
   await consumeBait(user.id, bait);
   let state = createMiniGameState({
@@ -74,11 +81,11 @@ async function runFishing(
   });
 
   const message = await sendCommandReply(target, {
-    embeds: [renderEncounterEmbed(user.language, encounter.map.name, encounter.weather, state)],
+    embeds: [renderEncounterEmbed(user.language, encounter.map.name, encounter.weather, state, encounter.fish.tier, encounter.weightPenalty)],
     components: [actionRow(user.language)],
   });
 
-  state = await playMiniGame(message, actor.id, user.language, encounter.map.name, encounter.weather, state);
+  state = await playMiniGame(message, actor.id, user.language, encounter.map.name, encounter.weather, state, encounter.fish.tier, encounter.weightPenalty);
 
   const result = finishMiniGame(state);
   await message.edit({
@@ -150,6 +157,8 @@ async function playMiniGame(
   mapName: string,
   weather: string,
   initialState: MiniGameState,
+  fishTier: string,
+  weightPenalty: number,
 ): Promise<MiniGameState> {
   return new Promise((resolve) => {
     let state = initialState;
@@ -192,7 +201,7 @@ async function playMiniGame(
       state = applyFishingAction(state, action);
       await message
         .edit({
-          embeds: [renderEncounterEmbed(language, mapName, weather, state)],
+          embeds: [renderEncounterEmbed(language, mapName, weather, state, fishTier, weightPenalty)],
           components: [actionRow(language)],
         })
         .catch(() => undefined);
@@ -246,13 +255,28 @@ function renderEncounterEmbed(
   mapName: string,
   weather: string,
   state: MiniGameState,
+  fishTier?: string,
+  weightPenalty?: number,
 ): EmbedBuilder {
+  const tierEmoji: Record<string, string> = {
+    Common: '⚪', Uncommon: '🟢', Rare: '🔵',
+    Epic: '🟣', Legendary: '🟠', Mythic: '🔴', Secret: '⬛',
+  };
+  const tierLabel = fishTier ? `${tierEmoji[fishTier] ?? '❓'} ${fishTier}` : '?';
+  const warningLine =
+    weightPenalty && weightPenalty >= 40
+      ? `\n⚠️ **${language === 'en' ? 'Rod too weak for this fish!' : 'Cần câu không đủ mạnh cho con cá này!'}**`
+      : weightPenalty && weightPenalty > 0
+        ? `\n⚡ **${language === 'en' ? 'Rod power slightly low.' : 'Power cần câu hơi yếu.'}**`
+        : '';
+
   return new EmbedBuilder()
-    .setColor(colors.cream)
+    .setColor(weightPenalty && weightPenalty >= 40 ? colors.danger : colors.cream)
     .setTitle('🥛 Fishing Encounter')
     .setDescription(
       [
         t(language, 'fishing.start', { map: mapName }),
+        warningLine,
         '',
         renderTensionBar(state),
         '',
@@ -263,6 +287,7 @@ function renderEncounterEmbed(
       { name: label(language, 'Weather', 'Thời tiết'), value: weather, inline: true },
       { name: label(language, 'Progress', 'Tiến độ'), value: `${Math.round(state.progress)}%`, inline: true },
       { name: label(language, 'Mistakes', 'Lỗi'), value: `${state.mistakes}/4`, inline: true },
+      { name: label(language, 'Fish Tier', 'Tier cá'), value: tierLabel, inline: true },
       {
         name: label(language, 'Buttons', 'Nút bấm'),
         value: buttonGuide(language),

@@ -23,6 +23,7 @@ export type Encounter = {
   difficulty: number;
   control: number;
   speed: number;
+  weightPenalty: number;
 };
 
 export type CatchResult = {
@@ -117,14 +118,25 @@ export async function createEncounter(context: FishingContext): Promise<Encounte
     }),
   );
 
+  const baseDifficulty = clamp(map.difficulty * 0.55 + (100 - fish.catchRate) * 0.45 + weatherDifficulty(weather) * 0.5, 1, 190);
+  const weight = fishWeight(fish);
+  const powerRatio = power / weight;
+  const weightPenalty =
+    powerRatio < 0.6
+      ? 80 // Cần quá yếu → gần như chắc thất bại
+      : powerRatio < 1.0
+        ? Math.round((1 - powerRatio) * 50)
+        : 0;
+
   return {
     map,
     fish,
     weather,
     time,
-    difficulty: clamp(map.difficulty * 0.55 + (100 - fish.catchRate) * 0.45 + weatherDifficulty(weather) * 0.5, 1, 190),
+    difficulty: clamp(baseDifficulty + weightPenalty, 1, 250),
     control: clamp(power * 1.45 + luck * 0.45 + 25, 1, 280),
     speed,
+    weightPenalty,
   };
 }
 
@@ -344,3 +356,19 @@ function secretSpotWeight(condition: unknown, weather: string, time: GameTime, b
   const itemOk = data.item === 'none' || data.item === bait;
   return weatherOk && timeOk && itemOk ? 1 : 0.02;
 }
+
+const tierWeight: Record<FishTier, number> = {
+  Common: 10,
+  Uncommon: 20,
+  Rare: 40,
+  Epic: 70,
+  Legendary: 110,
+  Mythic: 160,
+  Secret: 220,
+};
+
+function fishWeight(fish: Fish): number {
+  return tierWeight[fish.tier];
+}
+
+export { tierWeight };
